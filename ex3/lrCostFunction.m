@@ -15,7 +15,7 @@ hx = sigmoid(X * theta);
 J = (1/m) * ((-y)' * log(hx) - (1 - y)' * log(1 - hx));
 
 % Add regularization params
-J = J + sum((lambda/(2*m)) * theta(2:size(theta),:).^2);
+J = J + (lambda/(2*m) * theta(2:end)' * theta(2:end));
 
 % Calculate gradient for logistic regression
 grad = (1/m) * X' * (hx - y);
